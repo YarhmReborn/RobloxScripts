@@ -1,4 +1,4 @@
--- Credits: @wum_pj | Narukisora Hub
+-- Credits: @wum_ph | Narukisora Hub
 
 game:GetService("StarterGui"):SetCore("SendNotification", {
         Title = "Modifier Credits", 
