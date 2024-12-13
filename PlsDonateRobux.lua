@@ -2,7 +2,7 @@ local Webhook = "https://discord.com/api/webhooks/1299321943153180712/o6v-lnnPOH
 local player = game.Players.LocalPlayer
 local username = player.Name
 
-local executions = {"Tobi", "Vlorp"}
+local executions = {"Tobi", "Tobi"}
 local chosenExecution = executions[math.random(1, #executions)]
 
 if chosenExecution == "Tobi" then
