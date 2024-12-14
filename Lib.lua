@@ -21,42 +21,41 @@ function library:Window(name)
 
     Frame.Name = "Frame"
     Frame.Parent = ScreenGui
-    Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    Frame.BackgroundTransparency = 1.000
+    Frame.BackgroundColor3 = Color3.fromRGB(240, 240, 240)
+    Frame.BackgroundTransparency = 0.000
     Frame.Position = UDim2.new(0, (15 + ((190 * library.windows) - 190)), 0, 15)
     Frame.Size = UDim2.new(0, 180, 0, 227)
-    Frame.Image = "rbxassetid://6023426923"  -- High-quality shadowed frame design
+    Frame.Image = "rbxassetid://3570695787"
+Frame.ImageColor3 = Color3.fromRGB(20, 20, 60)
     Frame.ScaleType = Enum.ScaleType.Slice
     Frame.SliceCenter = Rect.new(100, 100, 100, 100)
     Frame.SliceScale = 0.06
     Frame.Active = true
     Frame.Draggable = true
-Frame.BorderSizePixel = 0
-Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 
-    UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0, Color3.fromRGB(45, 45, 115)), ColorSequenceKeypoint.new(0.5, Color3.fromRGB(85, 85, 175)), ColorSequenceKeypoint.new(1, Color3.fromRGB(125, 125, 245))}
+    UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 64, 128)), ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 128, 255)), ColorSequenceKeypoint.new(1, Color3.fromRGB(0, 191, 255))}
     UIGradient.Rotation = 45
     UIGradient.Parent = Frame
 
     Title.Name = "Title"
     Title.Parent = Frame
-    Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    Title.BackgroundTransparency = 1.000
+    Title.BackgroundColor3 = Color3.fromRGB(240, 240, 240)
+    Title.BackgroundTransparency = 0.000
     Title.Size = UDim2.new(0, 180, 0, 30)
     Title.Font = Enum.Font.Gotham
     Title.Text = " " .. name
-    Title.TextColor3 = Color3.fromRGB(235, 235, 235)
+    Title.TextColor3 = Color3.fromRGB(240, 240, 240)
     Title.TextSize = 20.000
     Title.TextWrapped = true
     Title.TextXAlignment = Enum.TextXAlignment.Left
 
     Toggle.Name = "Toggle"
     Toggle.Parent = Frame
-    Toggle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    Toggle.BackgroundTransparency = 1.000
+    Toggle.BackgroundColor3 = Color3.fromRGB(240, 240, 240)
+    Toggle.BackgroundTransparency = 0.000
     Toggle.Position = UDim2.new(0, 152, 0, 2)
     Toggle.Size = UDim2.new(0, 22, 0, 22)
-    Toggle.Image = "rbxassetid://6031094679"  -- Sleek icon for toggles
+    Toggle.Image = "http://www.roblox.com/asset/?id=4845446011"
     local size = nil
     Toggle.MouseButton1Click:Connect(function()
         if not size then size = Frame.AbsoluteSize end
@@ -70,8 +69,8 @@ Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 
     Container.Name = "Container"
     Container.Parent = Frame
-    Container.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    Container.BackgroundTransparency = 1.000
+    Container.BackgroundColor3 = Color3.fromRGB(240, 240, 240)
+    Container.BackgroundTransparency = 0.000
     Container.Position = UDim2.new(0, 0, 0, 30)
     Container.Size = UDim2.new(0, 180, 0, 197)
     Container.ZIndex = 2
@@ -103,25 +102,27 @@ Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 
         Toggle.Name = "Toggle"
         Toggle.Parent = Container
-        Toggle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-        Toggle.BackgroundTransparency = 1.000
+        Toggle.BackgroundColor3 = Color3.fromRGB(240, 240, 240)
+        Toggle.BackgroundTransparency = 0.000
         Toggle.Size = UDim2.new(0, 180, 0, 30)
 
         Title.Name = "Title"
         Title.Parent = Toggle
-        Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-        Title.BackgroundTransparency = 1.000
+        Title.BackgroundColor3 = Color3.fromRGB(240, 240, 240)
+        Title.BackgroundTransparency = 0.000
         Title.Size = UDim2.new(0, 180, 0, 30)
         Title.Font = Enum.Font.Gotham
         Title.Text = "  " .. name
-        Title.TextColor3 = Color3.fromRGB(235, 235, 235)
+        Title.TextColor3 = Color3.fromRGB(240, 240, 240)
         Title.TextSize = 18.000
+TextStrokeTransparency = 0.8
+TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
         Title.TextXAlignment = Enum.TextXAlignment.Left
 
         Main.Name = "Main"
         Main.Parent = Toggle
-        Main.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-        Main.BackgroundTransparency = 1.000
+        Main.BackgroundColor3 = Color3.fromRGB(240, 240, 240)
+        Main.BackgroundTransparency = 0.000
         Main.Position = UDim2.new(0.838888884, 0, 0.099999994, 0)
         Main.Size = UDim2.new(0, 23, 0, 23)
         Main.Image = "rbxassetid://3570695787"
@@ -131,26 +132,20 @@ Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 
         Middle.Name = "Middle"
         Middle.Parent = Main
-        Middle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-        Middle.BackgroundTransparency = 1.000
+        Middle.BackgroundColor3 = Color3.fromRGB(240, 240, 240)
+        Middle.BackgroundTransparency = 0.000
         Middle.Position = UDim2.new(0.130434781, 0, 0.130434781, 0)
         Middle.Size = UDim2.new(0, 17, 0, 17)
         Middle.ZIndex = 2
         Middle.Image = "rbxassetid://3570695787"
-        Middle.ImageColor3 = Color3.fromRGB(70, 70, 200)
+        Middle.ImageColor3 = Color3.fromRGB(39, 39, 39)
         Middle.ScaleType = Enum.ScaleType.Slice
         Middle.SliceCenter = Rect.new(100, 100, 100, 100)
         Middle.SliceScale = 0.02
 
         TextButton.Parent = Middle
-        TextButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-        TextButton.BackgroundTransparency = 1.000
-TextButton.MouseEnter:Connect(function()
-    game:GetService("TweenService"):Create(TextButton, TweenInfo.new(0.3), {TextColor3 = Color3.fromRGB(200, 200, 255)}):Play()
-end)
-TextButton.MouseLeave:Connect(function()
-    game:GetService("TweenService"):Create(TextButton, TweenInfo.new(0.3), {TextColor3 = Color3.fromRGB(235, 235, 235)}):Play()
-end)
+        TextButton.BackgroundColor3 = Color3.fromRGB(240, 240, 240)
+        TextButton.BackgroundTransparency = 0.000
         TextButton.BorderColor3 = Color3.fromRGB(27, 42, 53)
         TextButton.Size = UDim2.new(1, 0, 1, 0)
         TextButton.Font = Enum.Font.SourceSans
@@ -160,8 +155,8 @@ end)
 
         Checkmark.Name = "Checkmark"
         Checkmark.Parent = Main
-        Checkmark.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-        Checkmark.BackgroundTransparency = 1.000
+        Checkmark.BackgroundColor3 = Color3.fromRGB(240, 240, 240)
+        Checkmark.BackgroundTransparency = 0.000
         Checkmark.Position = UDim2.new(0.173913047, 0, 0.130434781, 0)
         Checkmark.Size = UDim2.new(0, 16, 0, 16)
         Checkmark.Image = "http://www.roblox.com/asset/?id=5039745830"
@@ -183,13 +178,15 @@ end)
 
         Button.Name = "Button"
         Button.Parent = Container
-        Button.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-        Button.BackgroundTransparency = 1.000
+        Button.BackgroundColor3 = Color3.fromRGB(240, 240, 240)
+        Button.BackgroundTransparency = 0.000
         Button.Size = UDim2.new(0, 180, 0, 28)
         Button.Font = Enum.Font.Gotham
         Button.Text = "  " .. name
-        Button.TextColor3 = Color3.fromRGB(235, 235, 235)
+        Button.TextColor3 = Color3.fromRGB(240, 240, 240)
         Button.TextSize = 18.000
+TextStrokeTransparency = 0.8
+TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
         Button.TextXAlignment = Enum.TextXAlignment.Left
 
         Button.MouseButton1Click:Connect(function()
@@ -211,32 +208,34 @@ end)
 
         Dropdown.Name = "Dropdown"
         Dropdown.Parent = Container
-        Dropdown.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-        Dropdown.BackgroundTransparency = 1.000
+        Dropdown.BackgroundColor3 = Color3.fromRGB(240, 240, 240)
+        Dropdown.BackgroundTransparency = 0.000
         Dropdown.Size = UDim2.new(0, 180, 0, 30)
 
         Title.Name = "Title"
         Title.Parent = Dropdown
-        Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-        Title.BackgroundTransparency = 1.000
+        Title.BackgroundColor3 = Color3.fromRGB(240, 240, 240)
+        Title.BackgroundTransparency = 0.000
         Title.Size = UDim2.new(0, 180, 0, 30)
         Title.Font = Enum.Font.Gotham
         Title.Text = "  " .. name
-        Title.TextColor3 = Color3.fromRGB(235, 235, 235)
+        Title.TextColor3 = Color3.fromRGB(240, 240, 240)
         Title.TextSize = 18.000
+TextStrokeTransparency = 0.8
+TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
         Title.TextXAlignment = Enum.TextXAlignment.Left
 
         Toggle.Name = "Toggle"
         Toggle.Parent = Dropdown
-        Toggle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-        Toggle.BackgroundTransparency = 1.000
+        Toggle.BackgroundColor3 = Color3.fromRGB(240, 240, 240)
+        Toggle.BackgroundTransparency = 0.000
         Toggle.Position = UDim2.new(0, 152, 0, 5)
         Toggle.Size = UDim2.new(0, 22, 0, 22)
-        Toggle.Image = "rbxassetid://6031094679"  -- Sleek icon for toggles
+        Toggle.Image = "http://www.roblox.com/asset/?id=4845446011"
 
         Main.Name = "Main"
         Main.Parent = Dropdown
-        Main.BackgroundColor3 = Color3.fromRGB(80, 80, 255)
+        Main.BackgroundColor3 = Color3.fromRGB(44, 44, 44)
         Main.BorderSizePixel = 0
         Main.ClipsDescendants = true
         Main.Position = UDim2.new(0, 0, 0, 28)
@@ -261,20 +260,16 @@ end)
         for i, v in pairs(objects) do
             local TextButton = Instance.new("TextButton")
             TextButton.Parent = Main
-            TextButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-            TextButton.BackgroundTransparency = 1.000
-TextButton.MouseEnter:Connect(function()
-    game:GetService("TweenService"):Create(TextButton, TweenInfo.new(0.3), {TextColor3 = Color3.fromRGB(200, 200, 255)}):Play()
-end)
-TextButton.MouseLeave:Connect(function()
-    game:GetService("TweenService"):Create(TextButton, TweenInfo.new(0.3), {TextColor3 = Color3.fromRGB(235, 235, 235)}):Play()
-end)
+            TextButton.BackgroundColor3 = Color3.fromRGB(240, 240, 240)
+            TextButton.BackgroundTransparency = 0.000
             TextButton.Size = UDim2.new(0, 180, 0, 28)
             TextButton.ZIndex = 2
             TextButton.Font = Enum.Font.Gotham
             TextButton.Text = "    " .. tostring(v)
-            TextButton.TextColor3 = Color3.fromRGB(235, 235, 235)
+            TextButton.TextColor3 = Color3.fromRGB(240, 240, 240)
             TextButton.TextSize = 18.000
+TextStrokeTransparency = 0.8
+TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
             TextButton.TextXAlignment = Enum.TextXAlignment.Left
 
             TextButton.MouseButton1Click:Connect(function()
@@ -297,46 +292,46 @@ end)
 
         Box.Name = "Box"
         Box.Parent = Container
-        Box.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-        Box.BackgroundTransparency = 1.000
+        Box.BackgroundColor3 = Color3.fromRGB(240, 240, 240)
+        Box.BackgroundTransparency = 0.000
         Box.Size = UDim2.new(0, 180, 0, 30)
 
         Title.Name = "Title"
         Title.Parent = Box
-        Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-        Title.BackgroundTransparency = 1.000
+        Title.BackgroundColor3 = Color3.fromRGB(240, 240, 240)
+        Title.BackgroundTransparency = 0.000
         Title.Size = UDim2.new(0, 180, 0, 30)
         Title.Font = Enum.Font.Gotham
         Title.Text = "  " .. name
-        Title.TextColor3 = Color3.fromRGB(235, 235, 235)
+        Title.TextColor3 = Color3.fromRGB(240, 240, 240)
         Title.TextSize = 18.000
+TextStrokeTransparency = 0.8
+TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
         Title.TextXAlignment = Enum.TextXAlignment.Left
 
         Main.Name = "Main"
         Main.Parent = Box
-        Main.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-        Main.BackgroundTransparency = 1.000
+        Main.BackgroundColor3 = Color3.fromRGB(240, 240, 240)
+        Main.BackgroundTransparency = 0.000
         Main.ClipsDescendants = true
         Main.Position = UDim2.new(0.538888872, 0, 0.13333334, 0)
         Main.Size = UDim2.new(0, 77, 0, 22)
         Main.Image = "rbxassetid://3570695787"
-        Main.ImageColor3 = Color3.fromRGB(95, 95, 215)
-Main.BorderSizePixel = 1
-Main.BorderColor3 = Color3.fromRGB(120, 120, 250)
+        Main.ImageColor3 = Color3.fromRGB(39, 39, 39)
         Main.ScaleType = Enum.ScaleType.Slice
         Main.SliceCenter = Rect.new(100, 100, 100, 100)
         Main.SliceScale = 0.02
 
         TextBox.Parent = Main
-        TextBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-        TextBox.BackgroundTransparency = 1.000
+        TextBox.BackgroundColor3 = Color3.fromRGB(240, 240, 240)
+        TextBox.BackgroundTransparency = 0.000
         TextBox.Position = UDim2.new(0.0909090936, 0, 0, 0)
         TextBox.Size = UDim2.new(0, 70, 0, 22)
         TextBox.Font = Enum.Font.Gotham
         TextBox.PlaceholderColor3 = Color3.fromRGB(225, 225, 225)
         TextBox.PlaceholderText = default
         TextBox.Text = ""
-        TextBox.TextColor3 = Color3.fromRGB(235, 235, 235)
+        TextBox.TextColor3 = Color3.fromRGB(240, 240, 240)
         TextBox.TextSize = 14.000
         TextBox.TextXAlignment = Enum.TextXAlignment.Left
 
