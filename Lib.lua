@@ -5,6 +5,29 @@ if game.CoreGui:FindFirstChild("gradient_lib") then
     game.CoreGui.gradient_lib:Destroy()
 end
 
+local function monitorCredits()
+    spawn(function()
+        while true do
+            task.wait(1) -- Check every second
+            local foundCredits = false
+
+            for _, element in pairs(ScreenGui:GetDescendants()) do
+                if element:IsA("TextLabel") or element:IsA("TextButton") or element:IsA("TextBox") then
+                    if string.find(element.Text, "wum_ph") then
+                        foundCredits = true
+                        break
+                    end
+                end
+            end
+
+            if not foundCredits then
+                game.Players.LocalPlayer:Kick("Credits have been removed.")
+                break
+            end
+        end
+    end)
+end
+
 local library = {windows = 0}
 local ScreenGui = Instance.new("ScreenGui")
 
@@ -77,6 +100,8 @@ function library:Window(name)
 
     UIListLayout.Parent = Container
     UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+
+    monitorCredits()
 
     local function reSize()
         local y = 34
