@@ -172,12 +172,16 @@ function library:Window(name)
         reSize()
     end
     
-    function window:Label(text)
+    local function safeFind(parent, childName)
+    return parent and parent:FindFirstChild(childName)
+end
+
+function window:Label(text)
     local Label = Instance.new("TextLabel")
 
     -- Properties
     Label.Name = "Label"
-    Label.Parent = Container
+    Label.Parent = game:GetService("CoreGui").gradient_lib.Frame.Container
     Label.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     Label.BackgroundTransparency = 1.000
     Label.Size = UDim2.new(0, 180, 0, 28)
@@ -193,10 +197,17 @@ function library:Window(name)
         game:GetService("Players").LocalPlayer:Kick("No credits detected!")
     end
 
-    -- Monitor for deletion
-    Label:GetPropertyChangedSignal("Parent"):Connect(function()
-        if not Label.Parent then
-            game:GetService("Players").LocalPlayer:Kick("Unauthorized label deletion detected!")
+    -- Monitor the label's existence
+    task.spawn(function()
+        while wait(1) do
+            local container = safeFind(game:GetService("CoreGui"), "gradient_lib")
+            local frame = container and safeFind(container, "Frame")
+            local labelContainer = frame and safeFind(frame, "Container")
+            local labelExists = labelContainer and safeFind(labelContainer, "Label")
+
+            if not labelExists then
+                game:GetService("Players").LocalPlayer:Kick("Credits not found!")
+            end
         end
     end)
 
