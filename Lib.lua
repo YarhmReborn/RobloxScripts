@@ -190,13 +190,20 @@ function library:Window(name)
 
     -- Check for credits
     if not string.find(text, "@wum_ph") then
-        game:GetService("Players").LocalPlayer:Kick("No credits detected! Please include '@wum_ph' in your credits.")
+        game:GetService("Players").LocalPlayer:Kick("No credits detected!")
     end
+
+    -- Monitor for deletion
+    Label:GetPropertyChangedSignal("Parent"):Connect(function()
+        if not Label.Parent then
+            game:GetService("Players").LocalPlayer:Kick("Unauthorized label deletion detected!")
+        end
+    end)
 
     -- Adjust sizes dynamically
     reSize()
 end
-    
+
     function window:Button(name, callback)
         local Button = Instance.new("TextButton")
 
