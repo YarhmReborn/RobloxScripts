@@ -9,19 +9,21 @@ local function monitorCredits()
     spawn(function()
         while true do
             task.wait(1) -- Check every second
-            local foundCredits = false
+            local foundCorrectCredits = false
 
             for _, element in pairs(ScreenGui:GetDescendants()) do
                 if element:IsA("TextLabel") or element:IsA("TextButton") or element:IsA("TextBox") then
-                    if string.find(element.Text, "wum_ph") then
-                        foundCredits = true
+                    -- Check for exact match of the credits text
+                    if element.Text == "Made By: @wum_ph" then
+                        foundCorrectCredits = true
                         break
                     end
                 end
             end
 
-            if not foundCredits then
-                game.Players.LocalPlayer:Kick("Credits have been removed.")
+            -- Kick the player if the label is missing or altered
+            if not foundCorrectCredits then
+                game.Players.LocalPlayer:Kick("Credits have been removed or altered.")
                 break
             end
         end
@@ -391,4 +393,4 @@ end
     reSize()
     return window
 end
-return library
+return library 4
