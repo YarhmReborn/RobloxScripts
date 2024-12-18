@@ -1,77 +1,92 @@
-if game.CoreGui:FindFirstChild("Premium_Lib") then
-    game.CoreGui.Premium_Lib:Destroy()
+-- Credits to: Ori Developer
+-- Modified By: @wum_ph
+
+if game.CoreGui:FindFirstChild("gradient_lib") then
+    game.CoreGui.gradient_lib:Destroy()
 end
 
 local library = {windows = 0}
 local ScreenGui = Instance.new("ScreenGui")
-ScreenGui.Name = "Premium_Lib"
-ScreenGui.Parent = game:GetService("CoreGui")
 
 function library:Window(name)
     local window = {toggled = false, flags = {}}
     local Frame = Instance.new("ImageLabel")
-    local UICorner = Instance.new("UICorner")
+    local UIGradient = Instance.new("UIGradient")
     local Title = Instance.new("TextLabel")
     local Toggle = Instance.new("ImageButton")
     local Container = Instance.new("Frame")
     local UIListLayout = Instance.new("UIListLayout")
-    
     library.windows = library.windows + 1
-    
-    -- Frame Setup
+    ScreenGui.Name = "gradient_lib"
+    ScreenGui.Parent = game:GetService("CoreGui")
+
     Frame.Name = "Frame"
     Frame.Parent = ScreenGui
-    Frame.BackgroundColor3 = Color3.fromRGB(32, 32, 32)
-    Frame.Position = UDim2.new(0, (20 + ((220 * library.windows) - 220)), 0, 20)
-    Frame.Size = UDim2.new(0, 210, 0, 250)
+    Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    Frame.BackgroundTransparency = 1.000
+    Frame.Position = UDim2.new(0, (15 + ((190 * library.windows) - 190)), 0, 15)
+    Frame.Size = UDim2.new(0, 180, 0, 227)
     Frame.Image = "rbxassetid://3570695787"
     Frame.ScaleType = Enum.ScaleType.Slice
     Frame.SliceCenter = Rect.new(100, 100, 100, 100)
-    Frame.SliceScale = 0.05
+    Frame.SliceScale = 0.06
     Frame.Active = true
     Frame.Draggable = true
 
-    UICorner.CornerRadius = UDim.new(0, 8)
-    UICorner.Parent = Frame
+    UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0, Color3.fromRGB(29, 29, 29)), ColorSequenceKeypoint.new(1, Color3.fromRGB(66, 66, 66))}
+    UIGradient.Rotation = 45
+    UIGradient.Parent = Frame
 
-    -- Title
     Title.Name = "Title"
     Title.Parent = Frame
-    Title.BackgroundTransparency = 1
-    Title.Size = UDim2.new(0, 210, 0, 35)
-    Title.Font = Enum.Font.GothamBold
+    Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    Title.BackgroundTransparency = 1.000
+    Title.Size = UDim2.new(0, 180, 0, 30)
+    Title.Font = Enum.Font.Gotham
     Title.Text = " " .. name
     Title.TextColor3 = Color3.fromRGB(255, 255, 255)
-    Title.TextSize = 22
+    Title.TextSize = 20.000
+    Title.TextWrapped = true
     Title.TextXAlignment = Enum.TextXAlignment.Left
 
-    -- Toggle Button
     Toggle.Name = "Toggle"
     Toggle.Parent = Frame
-    Toggle.BackgroundTransparency = 1
-    Toggle.Position = UDim2.new(0, 180, 0, 5)
-    Toggle.Size = UDim2.new(0, 25, 0, 25)
-    Toggle.Image = "http://www.roblox.com/asset/?id=6035047377"
-    
-    -- Container for Components
+    Toggle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    Toggle.BackgroundTransparency = 1.000
+    Toggle.Position = UDim2.new(0, 152, 0, 2)
+    Toggle.Size = UDim2.new(0, 22, 0, 22)
+    Toggle.Image = "http://www.roblox.com/asset/?id=4845446011"
+    local size = nil
+    Toggle.MouseButton1Click:Connect(function()
+        if not size then size = Frame.AbsoluteSize end
+        if not window.toggled then Frame.ClipsDescendants = true end
+        window.toggled = not window.toggled
+        game:GetService("TweenService"):Create(Toggle, TweenInfo.new(0.35), {Rotation = window.toggled and 90 or 0}):Play()
+        Frame:TweenSize(window.toggled and UDim2.new(0, 180, 0, 30) or UDim2.new(0, size.X, 0, size.Y), "Out", "Sine", .35, true)
+        wait(.35)
+        if window.toggled then Container.ClipsDescendants = false end
+    end)
+
     Container.Name = "Container"
     Container.Parent = Frame
-    Container.BackgroundTransparency = 1
-    Container.Position = UDim2.new(0, 0, 0, 40)
-    Container.Size = UDim2.new(0, 210, 0, 200)
-    
+    Container.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    Container.BackgroundTransparency = 1.000
+    Container.Position = UDim2.new(0, 0, 0, 30)
+    Container.Size = UDim2.new(0, 180, 0, 197)
+    Container.ZIndex = 2
+
     UIListLayout.Parent = Container
     UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
-    UIListLayout.Padding = UDim.new(0, 5)
 
     local function reSize()
-        local y = 45
-        for _, v in pairs(Container:GetChildren()) do
+        local y = 34
+        for i, v in pairs(Container:GetChildren()) do
             if v:IsA("Frame") or v:IsA("TextButton") or v:IsA("TextLabel") or v:IsA("TextBox") then
-                y = y + v.AbsoluteSize.Y + 5
+                y = y + v.AbsoluteSize.Y
             end
         end
-        Frame.Size = UDim2.new(0, 210, 0, y)
+        Frame.Size = UDim2.new(0, 180, 0, y)
+        Container.Size = UDim2.new(0, 180, 0, y)
     end
 
     function window:Toggle(name, callback)
@@ -156,6 +171,27 @@ function library:Window(name)
         end)
         reSize()
     end
+    
+    function window:Label(text)
+    local Label = Instance.new("TextLabel")
+
+    -- Properties
+    Label.Name = "Label"
+    Label.Parent = Container
+    Label.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    Label.BackgroundTransparency = 1.000
+    Label.Size = UDim2.new(0, 180, 0, 28)
+    Label.Font = Enum.Font.Gotham
+    Label.Text = "  " .. text -- Add padding to the text for aesthetics
+    Label.TextColor3 = Color3.fromRGB(255, 255, 255)
+    Label.TextSize = 16.000
+    Label.TextWrapped = true
+    Label.TextXAlignment = Enum.TextXAlignment.Left
+
+    -- Adjust sizes dynamically
+    reSize()
+end
+    
     function window:Button(name, callback)
         local Button = Instance.new("TextButton")
 
