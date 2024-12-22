@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Code Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a2e;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #ffcc00;
+        }
+        input, button {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px;
+            border-radius: 5px;
+        }
+        input {
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Admin Panel - Generate Redeem Codes</h1>
+    <div>
+        <label for="amount">Amount: </label>
+        <input type="number" id="amount" min="1" value="10">
+        <button onclick="generateCode()">Generate Code</button>
+    </div>
+    <div>
+        <h3>Generated Codes</h3>
+        <ul id="code-list"></ul>
+    </div>
+    <script>
+        function generateCode() {
+            const amount = parseInt(document.getElementById('amount').value);
+            if (isNaN(amount) || amount < 1) {
+                alert('❌ Invalid amount!');
+                return;
+            }
+
+            const code = Math.random().toString(36).substring(2, 10).toUpperCase();
+
+            // Save code to localStorage
+            const storedCodes = JSON.parse(localStorage.getItem('redeemCodes')) || {};
+            storedCodes[code] = amount;
+            localStorage.setItem('redeemCodes', JSON.stringify(storedCodes));
+
+            // Display code
+            const listItem = document.createElement('li');
+            listItem.textContent = `Code: ${code} | Amount: $${amount}`;
+            document.getElementById('code-list').appendChild(listItem);
+
+            alert(`✅ Code generated: ${code}`);
+        }
+    </script>
+</body>
+</html>
